@@ -1,1 +1,1 @@
-from . import library_checkout_massmessage
+from . import checkout_mass_message
