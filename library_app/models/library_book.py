@@ -38,8 +38,9 @@ class Book(models.Model):
     date_published = fields.Date()
     last_borrow_date = fields.Datetime(
         'Last Borrowed On',
-        default='_default_last_borrow_date',
+        default=lambda self: fields.Datetime.now(),
     )
+    
     def _default_last_borrow_date(self):
         return fields.Datetime.now()
 
