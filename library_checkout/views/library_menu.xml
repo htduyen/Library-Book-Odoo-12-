@@ -1,13 +1,17 @@
+<?xml version="1.0"?>
 <odoo>
+
     <act_window id="action_library_checkout"
-    name="Checkouts"
-    res_model="library.checkout"
-    view_mode="tree,form" />
+      name="Checkouts"
+      res_model="library.checkout"
+      view_mode="tree,form,activity,graph,pivot"
+    />
 
     <menuitem id="menu_library_checkout"
-    name="Checkout"
-    action="action_library_checkout"
-    parent="library_app.library_menu" />
+              name="Checkout"
+              action="action_library_checkout"
+              parent="library_app.library_menu" />
+
 
     <act_window id="action_library_stage"
       name="Checkout Stages"
@@ -19,4 +23,6 @@
               name="Checkout Stages"
               action="action_library_stage"
               parent="library_app.library_menu" />
+    
+
 </odoo>
