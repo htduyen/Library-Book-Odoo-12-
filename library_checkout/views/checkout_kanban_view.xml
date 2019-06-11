@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+    <odoo>
+    <!-- Add Kanban view -->
+    <record id="library_checkout_kanban" model="ir.ui.view">
+        <field name="model">library.checkout</field>
+        <field name="arch" type="xml">
+        <kanban>
+        <!-- Empty for now, but the Kanban will go here! -->
+        </kanban>
+        </field>
+    </record>
+</odoo>

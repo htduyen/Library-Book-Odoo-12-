@@ -1,6 +1,8 @@
 from odoo import api, exceptions, fields, models
+
 import logging
 _logger = logging.getLogger(__name__)
+
 
 class CheckoutMassMessage(models.TransientModel):
     _name = 'library.checkout.massmessage'
@@ -15,21 +17,10 @@ class CheckoutMassMessage(models.TransientModel):
     @api.model
     def default_get(self, field_names):
         defaults = super().default_get(field_names)
-        checkout_ids = self.env.context['active_ids']
+        checkout_ids = self.env.context.get('active_ids')
         defaults['checkout_ids'] = checkout_ids
         return defaults
 
-    # #Button Send    
-    # @api.multi
-    # def button_send(self):
-    #     self.ensure_one()
-    #     for checkout in self.checkout_ids:
-    #         checkout.message_post(
-    #             body=self.message_body,
-    #             subject=self.message_subject,
-    #             subtype='mail.mt_comment',
-    #     )
-    #     return True
     @api.multi
     def button_send(self):
         import pudb; pu.db
@@ -57,5 +48,5 @@ class CheckoutMassMessage(models.TransientModel):
                 'Posted %d messages to Checkouts: %s',
                 len(self.checkout_ids),
                 self.checkout_ids.ids,
-            )
+        )
         return True
