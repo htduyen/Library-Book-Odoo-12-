@@ -35,7 +35,7 @@ class Book(models.Model):
     price = fields.Monetary('Price', 'currency_id')
 
     # Date fields
-    date_published = fields.Date()
+    date_published = fields.Date('Date Published')
     last_borrow_date = fields.Datetime(
         'Last Borrowed On',
         default=lambda self: fields.Datetime.now(),
@@ -120,3 +120,10 @@ class Book(models.Model):
             if book.isbn and not book._check_isbn():
                 raise ValidationError(
                     '%s is an invalid ISBN' % book.isbn)
+
+    @api.onchange('isbn')
+    def _onchange_isbn_valid(self):
+        for book in self:
+            if book.isbn and not book._check_isbn():
+                raise ValidationError('{0} is an invalid ISBN'.format(book.isbn))
+    #/176

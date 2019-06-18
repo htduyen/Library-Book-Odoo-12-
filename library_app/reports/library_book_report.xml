@@ -20,7 +20,8 @@
 
 <report id="action_library_book_report"
   string="Library Books"
-  model="library.book" report_type="qweb-pdf"
+  model="library.book" 
+  report_type="qweb-pdf"
   name="library_app.report_library_book_template"
   paperformat="paperformat_euro_landscape"
  />
