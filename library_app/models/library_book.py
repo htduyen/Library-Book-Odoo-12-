@@ -49,8 +49,11 @@ class Book(models.Model):
     image = fields.Binary('Cover')
 
     # Relational fields
-    publisher_id = fields.Many2one('res.partner', string='Publisher')
+    publisher_id = fields.Many2one('res.partner',  string='Publisher')
     author_ids = fields.Many2many('res.partner', string='Authors')
+
+    # new line
+    # writer_ids = fields.Many2many('library.book.writer', string='Writer')
 
     @api.multi
     def _check_isbn(self):
@@ -73,7 +76,16 @@ class Book(models.Model):
             if book.isbn and not book._check_isbn():
                 raise Warning(
                     '%s is an invalid ISBN' % book.isbn)
+            if book.isbn and book._check_isbn():
+                raise Warning('%s is an valid ISBN' % book.isbn)
         return True
+
+    #Check ISBN
+    @api.onchange('isbn')
+    def _onchange_isbn_valid(self):
+        for book in self:
+            if book.isbn and not book._check_isbn():
+                raise ValidationError('{0} is an invalid ISBN'.format(book.isbn))
 
     category_id = fields.Many2one('library.book.category', string='Category')
 
@@ -89,6 +101,11 @@ class Book(models.Model):
     def _compute_publisher_country(self):
         for book in self:
             book.publisher_country_id = book.publisher_id.country_id
+    # new line
+    # @api.depends('author_ids.book_ids')
+    # def _compute_book_author(self):
+    #     for book in self:
+    #         book.author_ids = book.author_ids.book_ids
 
     @api.depends('publisher_country_id')
     def _inverse_publisher_country(self):
@@ -98,6 +115,9 @@ class Book(models.Model):
 
     def _search_publisher_country(self, operator, value):
         return [('publisher_id.country_id', operator, value)]
+    # new line
+    # def _search_authors(self, operator, value):
+    #     return [('book_ids.author_ids', operator, value)]
 
     publisher_country_related = fields.Many2one(
         'res.country',
@@ -121,9 +141,4 @@ class Book(models.Model):
                 raise ValidationError(
                     '%s is an invalid ISBN' % book.isbn)
 
-    @api.onchange('isbn')
-    def _onchange_isbn_valid(self):
-        for book in self:
-            if book.isbn and not book._check_isbn():
-                raise ValidationError('{0} is an invalid ISBN'.format(book.isbn))
     #/176

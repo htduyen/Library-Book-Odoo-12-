@@ -6,8 +6,10 @@ class Partner(models.Model):
 
     published_book_ids = fields.One2many(
         'library.book',  # related model
-        'publisher_id',  # field for "this" on related model
+         'publisher_id',  # field for "this" on related model
         string='Published Books')
 
     book_ids = fields.Many2many(
-        'library.book', string='Authored Books')
+        'library.book',
+        'author_ids', # new line
+        string='Authored Books')

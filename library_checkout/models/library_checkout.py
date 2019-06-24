@@ -49,8 +49,6 @@ class Checkout(models.Model):
         group_expand='_group_expand_stage_id',
         #ondelete='restrict',
     )
-
-
     state = fields.Selection(related='stage_id.state')
 
     checkout_date = fields.Date(default = fields.Date.today())
@@ -68,19 +66,7 @@ class Checkout(models.Model):
                 }
             }
 
-    @api.onchange('checkout_date')
-    def onchange_checkout_date(self):
-        today = fields.Date.today()
-        if self.checkout_date:
-            pass
-        elif self.checkout_date <= today:
-            self.checkout_date = today
-            return {
-                'warning': {
-                    'title': 'Changed checkout date',
-                    'message': 'Checkout date have to rather than Request date!.'
-                }
-            }
+
 
     @api.model
     def create(self, vals):
@@ -111,6 +97,20 @@ class Checkout(models.Model):
         # Code after write: can use `self`, with the updated values
         return True
 
+    @api.onchange('checkout_date')
+    def onchange_checkout_date(self):
+
+        if self.checkout_date == '':
+            pass
+        elif self.checkout_date <  self.request_date:
+
+            return {
+                'warning': {
+                    'title': 'Changed checkout date',
+                    'message': 'Checkout date have to rather than Request date!.'
+                }
+            }
+
     member_image = fields.Binary(related='member_id.partner_id.image')
     num_other_checkouts = fields.Integer(
         compute='_compute_num_other_checkouts')
@@ -130,6 +130,7 @@ class Checkout(models.Model):
     def _compute_num_books(self):
         for book in self:
             book.num_books = len(book.line_ids)
+
 
     def button_done(self):
         Stage = self.env['library.checkout.stage']
