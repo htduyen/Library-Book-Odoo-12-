@@ -16,7 +16,7 @@
                   <field name="name" />
                   <field name="category_id" />
                   <field name="author_ids" widget="many2many_tags" />
-<!--                  <field name="writer_ids" widget="many2many_tags" />-->
+                  <field name="writer_ids" widget="many2many_tags" />
                   <field name="publisher_id" />
                   <field name="publisher_country_id" />
                   <field name="publisher_country_related" />
@@ -50,12 +50,14 @@
   <field name="model">library.book</field>
   <field name="arch" type="xml">
     <tree>
-      <field name="name"/>
-<!--        <field name="writer_ids" widget="many2many_tags" />-->
+        <field name="name"></field>
+
+        <field name="writer_ids" widget="many2many_tags"></field>
         <!-- new line-->
         <field name="author_ids" widget="many2many_tags" />
       <field name="publisher_id"/>
-      <field name="date_published"/>
+      <field name="publisher_country_id"></field>
+<!--      <field name="date_published"/>-->
     </tree>
   </field>
 </record>
@@ -65,21 +67,27 @@
     <field name="model">library.book</field>
     <field name="arch" type="xml">
       <search>
-      <field name="name"/>
-      <field name="author_ids"></field>
-<!--      <field name="writer_ids"></field>-->
-      <field name="publisher_id"/>
-          <!--      <field name="currency_id"></field>-->
-      <filter name="filter_inactive"
-              string="Inactive"
-              domain="[('active','=',True)]"/>
-      <filter name="filter_active"
-              string="Active"
-              domain="[('active','=',False)]"/>
-<!--      <filter name="group_user" string="By Author"-->
-<!--          context="{'group_by': 'author_ids'}"/>-->
-      <filter name="group_user" string="By Publisher"
-          context="{'group_by': 'publisher_id'}"/>
+          <field name="name" filter_domain="[('name','ilike',self)]"/>
+<!--          <field name="writer_ids"></field>-->
+          <separator/>
+          <field name="publisher_id" filter_domain="[('publisher_id','ilike',self)]"/>
+
+    <!--      <field name="author_ids"></field>-->
+    <!--      <field name="publisher_id"/>-->
+          <filter name="filter_inactive"
+                  string="Inactive"
+                  domain="[('active','=',True)]"/>
+          <filter name="filter_active"
+                  string="Active"
+                  domain="[('active','=',False)]"/>
+
+    <!--      <filter name="group_writer"-->
+    <!--              string="By Writer"-->
+    <!--              context="{'group_by': 'writer_ids'}"/>-->
+          <filter name="group_user"
+                  string="By Publisher"
+                  context="{'group_by': 'publisher_id'}"/>
+
       </search>
     </field>
   </record>

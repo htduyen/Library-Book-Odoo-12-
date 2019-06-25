@@ -148,6 +148,8 @@
 
         <filter name="group_user" string="By Member"
           context="{'group_by': 'member_id'}"/>
+<!--        <filter name="group_user" string="By User"-->
+<!--          context="{'group_by': 'user_id'}"/>-->
       </search>
     </field>
   </record>

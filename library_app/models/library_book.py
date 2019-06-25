@@ -7,7 +7,7 @@ class Book(models.Model):
     _name = 'library.book'
     _description = 'Book'
     _order = 'name, date_published desc'
-
+    # _parent_store = True
     # Text fields
     name = fields.Char(
         'Title',
@@ -17,6 +17,8 @@ class Book(models.Model):
         readonly=False,
         required=True,
         translate=False,
+        search='_search_function',
+        filter_domain="[('name','ilike',self)]",
     )
     isbn = fields.Char('ISBN')
     book_type = fields.Selection(
@@ -49,11 +51,12 @@ class Book(models.Model):
     image = fields.Binary('Cover')
 
     # Relational fields
-    publisher_id = fields.Many2one('res.partner',  string='Publisher')
+    publisher_id = fields.Many2one('res.partner',  string='Publisher', search='_search_function',
+                          filter_domain="[('publisher_id','ilike',self)]",)
     author_ids = fields.Many2many('res.partner', string='Authors')
 
     # new line
-    # writer_ids = fields.Many2many('library.book.writer', string='Writer')
+    writer_ids = fields.Many2many('library.book.writer', string='Writer', index=True)
 
     @api.multi
     def _check_isbn(self):
@@ -101,11 +104,7 @@ class Book(models.Model):
     def _compute_publisher_country(self):
         for book in self:
             book.publisher_country_id = book.publisher_id.country_id
-    # new line
-    # @api.depends('author_ids.book_ids')
-    # def _compute_book_author(self):
-    #     for book in self:
-    #         book.author_ids = book.author_ids.book_ids
+
 
     @api.depends('publisher_country_id')
     def _inverse_publisher_country(self):
@@ -115,9 +114,7 @@ class Book(models.Model):
 
     def _search_publisher_country(self, operator, value):
         return [('publisher_id.country_id', operator, value)]
-    # new line
-    # def _search_authors(self, operator, value):
-    #     return [('book_ids.author_ids', operator, value)]
+
 
     publisher_country_related = fields.Many2one(
         'res.country',
