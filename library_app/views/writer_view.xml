@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+
+  <record id="view_form_writer" model="ir.ui.view">
+    <field name="name">Writer Form</field>
+    <field name="model">library.book.writer</field> <!-- file pyhton /-/- library_book.py -->
+    <field name="arch" type="xml">
+    <form string="Writer">
+      <sheet>
+          <group>
+             <group>
+                  <field name="name" />
+                  <field name="create_date" />
+              </group>
+              <group>
+                  <field name="book_ids" widget="many2many_tags" />
+                  <field name="image" widget="image" class="oe_avatar"/>
+              </group>
+          </group>
+      </sheet>
+    </form>
+    </field>
+  </record>
+
+<record id="view_tree_writer" model="ir.ui.view">
+  <field name="name">Writer List</field>
+  <field name="model">library.book.writer</field>
+  <field name="arch" type="xml">
+    <tree>
+        <field name="name"></field>
+
+        <field name="book_ids" widget="many2many_tags"></field>
+        <!-- new line-->
+        <field name="create_date" />
+        
+    </tree>
+  </field>
+</record>
+
+  <record id="view_search_book" model="ir.ui.view">
+    <field name="name">Writer Filters</field>
+    <field name="model">library.book.writer</field>
+    <field name="arch" type="xml">
+      <search>
+          <field name="name" filter_domain="[('name','ilike',self)]"/>
+          <field name="book_ids" filter_domain="[('book_ids','ilike',self)]"></field>
+
+          <filter name="group_user"
+                  string="By Created"
+                  context="{'group_by': 'create_date'}"/>
+
+      </search>
+    </field>
+  </record>
+
+</odoo>

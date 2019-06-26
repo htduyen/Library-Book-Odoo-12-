@@ -26,4 +26,13 @@
               action="action_library_categ"
               parent="library_menu" />
 
+    <act_window id="action_library_writer"
+          name="Writers"
+          res_model="library.book.writer"
+          view_mode="tree,form"/>
+
+    <menuitem id="menu_library_writer"
+              name="Writers"
+              action="action_library_writer"
+              parent="library_menu" />
 </odoo>
