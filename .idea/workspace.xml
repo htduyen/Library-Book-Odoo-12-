@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e687a012-b704-4bd5-b256-d450c80c2905" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/custom-addons.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/models/library_book.py" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/models/library_book.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/models/library_book_writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/models/library_book_writers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/security/ir.model.access.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/views/book_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/views/book_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/views/library_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/views/library_menu.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_app/views/writer_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/library_app/views/writer_views.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e687a012-b704-4bd5-b256-d450c80c2905" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
