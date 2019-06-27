@@ -68,12 +68,9 @@
     <field name="arch" type="xml">
       <search>
           <field name="name" filter_domain="[('name','ilike',self)]"/>
-<!--          <field name="writer_ids"></field>-->
-          <separator/>
+          <field name="writer_ids"></field>
           <field name="publisher_id" filter_domain="[('publisher_id','ilike',self)]"/>
 
-    <!--      <field name="author_ids"></field>-->
-    <!--      <field name="publisher_id"/>-->
           <filter name="filter_inactive"
                   string="Inactive"
                   domain="[('active','=',True)]"/>
@@ -81,9 +78,6 @@
                   string="Active"
                   domain="[('active','=',False)]"/>
 
-    <!--      <filter name="group_writer"-->
-    <!--              string="By Writer"-->
-    <!--              context="{'group_by': 'writer_ids'}"/>-->
           <filter name="group_user"
                   string="By Publisher"
                   context="{'group_by': 'publisher_id'}"/>

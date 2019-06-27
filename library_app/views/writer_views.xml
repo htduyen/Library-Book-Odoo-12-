@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <odoo>
 
-  <record id="view_form_writer" model="ir.ui.view">
+  <record id="view_form_writers" model="ir.ui.view">
     <field name="name">Writer Form</field>
-    <field name="model">library.book.writer</field> <!-- file pyhton /-/- library_book.py -->
+    <field name="model">library.book.writers</field> <!-- file pyhton /-/- library_book.py -->
     <field name="arch" type="xml">
     <form string="Writer">
       <sheet>
@@ -22,9 +22,9 @@
     </field>
   </record>
 
-<record id="view_tree_writer" model="ir.ui.view">
+<record id="view_tree_writers" model="ir.ui.view">
   <field name="name">Writer List</field>
-  <field name="model">library.book.writer</field>
+  <field name="model">library.book.writers</field>
   <field name="arch" type="xml">
     <tree>
         <field name="name"></field>
@@ -37,9 +37,8 @@
   </field>
 </record>
 
-  <record id="view_search_book" model="ir.ui.view">
-    <field name="name">Writer Filters</field>
-    <field name="model">library.book.writer</field>
+  <record id="view_filter_writers_of_book" model="ir.ui.view">
+    <field name="model">library.book.writers</field>
     <field name="arch" type="xml">
       <search>
           <field name="name" filter_domain="[('name','ilike',self)]"/>

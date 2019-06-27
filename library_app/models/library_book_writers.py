@@ -2,7 +2,7 @@ from odoo import api, fields, models
 
 
 class Writer(models.Model):
-    _name = 'library.book.writer'
+    _name = 'library.book.writers'
     _description = 'Writer'
     _order = 'name'
 
@@ -26,5 +26,5 @@ class Writer(models.Model):
     _sql_constraints = [
         ('library_book_name_writer',
          'UNIQUE (name)',
-         ('This name already, Name of writer must be unique.'))
+         'This name already, Name of writer must be unique.')
     ]

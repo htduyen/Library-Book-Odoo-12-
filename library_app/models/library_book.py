@@ -56,7 +56,7 @@ class Book(models.Model):
     author_ids = fields.Many2many('res.partner', string='Authors')
 
     # new line
-    writer_ids = fields.Many2many('library.book.writer', string='Writer', index=True)
+    writer_ids = fields.Many2many('library.book.writers', string='Writer', index=True)
 
     @api.multi
     def _check_isbn(self):

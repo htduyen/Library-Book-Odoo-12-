@@ -10,7 +10,7 @@
       'views/book_view.xml',
       'views/book_category_view.xml',
       'views/book_list_template.xml',
-      'views/writer_view.xml',
+      'views/writer_views.xml',
       'reports/library_book_report.xml',
       'reports/library_book_sql_report.xml',
    ],
