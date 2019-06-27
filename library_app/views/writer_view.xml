@@ -32,7 +32,7 @@
         <field name="book_ids" widget="many2many_tags"></field>
         <!-- new line-->
         <field name="create_date" />
-        
+
     </tree>
   </field>
 </record>
