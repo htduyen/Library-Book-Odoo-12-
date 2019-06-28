@@ -12,9 +12,25 @@ class Writer(models.Model):
         'library.book', string='Writered Books')
 
     create_date = fields.Date('Create date')
+
     image = fields.Binary('Image')
 
+    descr = fields.Html('Description')
 
+    birthday = fields.Date('Birthday')
+
+    book_type = fields.Selection(
+        [('comic', 'Comic book'),
+         ('drama', 'Drama'),
+         ('romance', 'Romance'),
+         ('cookbook', 'Cookbook'),
+         ('graphic', 'Graphic novel'),
+         ('action', 'Action and adventure'),
+         ('horror', 'Horror')],
+        'Type book',
+        default='cookbook')
+
+    slogan = fields.Html('Slogan')
 
     @api.model
     def create(self, vals):

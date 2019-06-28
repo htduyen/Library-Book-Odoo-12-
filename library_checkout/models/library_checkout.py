@@ -44,10 +44,10 @@ class Checkout(models.Model):
         'library.checkout.stage',
         default=_default_stage,
         delegate=True,
-        ondelete='cascade',
+        #ondelete='cascade',
         required=True,
         group_expand='_group_expand_stage_id',
-        #ondelete='restrict',
+        ondelete='restrict',
     )
     state = fields.Selection(related='stage_id.state')
 

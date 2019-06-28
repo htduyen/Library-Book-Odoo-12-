@@ -67,9 +67,9 @@
     <field name="model">library.book</field>
     <field name="arch" type="xml">
       <search>
-          <field name="name" filter_domain="[('name','ilike',self)]"/>
+          <field name="name" domain="[('name','ilike',self)]"/>
           <field name="writer_ids"></field>
-          <field name="publisher_id" filter_domain="[('publisher_id','ilike',self)]"/>
+          <field name="publisher_id" domain="[('publisher_id','ilike',self)]"/>
 
           <filter name="filter_inactive"
                   string="Inactive"
@@ -83,6 +83,7 @@
                   context="{'group_by': 'publisher_id'}"/>
 
       </search>
+        
     </field>
   </record>
 

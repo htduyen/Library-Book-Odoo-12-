@@ -11,13 +11,25 @@
              <group>
                   <field name="name" />
                   <field name="create_date" />
+                  <field name="birthday" />
               </group>
               <group>
+                  <field name="book_type" widget="selection" />
                   <field name="book_ids" widget="many2many_tags" />
                   <field name="image" widget="image" class="oe_avatar"/>
               </group>
           </group>
+
+            <notebook>
+                <page name="page_lines_writer" string="Slogan">
+                    <field name="slogan"></field>
+                </page>
+                <page name="page_lines_descr_writer" string="Descriptions">
+                     <field name="descr"/>
+                </page>
+            </notebook>
       </sheet>
+
     </form>
     </field>
   </record>
