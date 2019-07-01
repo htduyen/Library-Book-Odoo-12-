@@ -56,7 +56,37 @@ class Book(models.Model):
     author_ids = fields.Many2many('res.partner', string='Authors')
 
     # new line
-    writer_ids = fields.Many2many('library.book.writers', string='Writer', index=True)
+    writer_ids = fields.Many2many('library.book.writers', string='Writer',search='_search_function',
+                          domain="[('state','=','active')]", index=True)
+
+    account = fields.Integer(default=1)
+
+    state = fields.Char('State', readonly = True)
+
+    # @api.onchange('account')
+    # def _onchange_account_valid(self):
+    #     for book in self:
+    #         if book.account < 0 :
+    #             raise ValidationError('Account is not {0}'.format(book.account))
+    #         if book.account == 0 :
+    #             book.state = 'Het'
+    #         if 0 < book.account <= 5:
+    #             book.state = 'Sap het'
+    #         if book.account > 5:
+    #             book.state = 'Con'
+    # @api.model
+    # def create(self, vals):
+    #     # Code before create: should use the `vals` dict
+    #     if 'account' in vals:
+    #         if 'account' < 0:
+    #             raise ValidationError('Account is not less than 0')
+    #         if 'account' == 0 :
+    #             vals['state'] = 'Het'
+    #         if 0 < 'account' <= 5:
+    #             vals['state'] = 'Sap het'
+    #         if 'account' > 5:
+    #             vals['state'] = 'Con'
+    #     return super().create(vals)
 
     @api.multi
     def _check_isbn(self):

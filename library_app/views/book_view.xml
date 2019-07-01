@@ -16,11 +16,12 @@
                   <field name="name" />
                   <field name="category_id" />
                   <field name="author_ids" widget="many2many_tags" />
-                  <field name="writer_ids" widget="many2many_tags" />
+                  <field name="writer_ids" widget="many2many_tags" filter_domain="[('state','=','active')]"/>
                   <field name="publisher_id" />
                   <field name="publisher_country_id" />
                   <field name="publisher_country_related" />
-                  <separator string="Text fields" />
+                  <separator string="Text fields"/>
+                  <field name="state" />
                   <field name="isbn" />
                   <field name="book_type" />
                   <field name="notes" />
@@ -28,6 +29,7 @@
               </group>
               <group>
                   <separator string="Numeric fields" />
+                  <field name="account"/>
                   <field name="copies" />
                   <field name="avg_rating" />
                   <field name="price" />
@@ -51,13 +53,10 @@
   <field name="arch" type="xml">
     <tree>
         <field name="name"></field>
-
         <field name="writer_ids" widget="many2many_tags"></field>
-        <!-- new line-->
-        <field name="author_ids" widget="many2many_tags" />
-      <field name="publisher_id"/>
-      <field name="publisher_country_id"></field>
-<!--      <field name="date_published"/>-->
+        <field name="publisher_id"/>
+        <field name="account"/>
+        <field name="state"/>
     </tree>
   </field>
 </record>
@@ -74,6 +73,7 @@
           <filter name="filter_inactive"
                   string="Inactive"
                   domain="[('active','=',True)]"/>
+
           <filter name="filter_active"
                   string="Active"
                   domain="[('active','=',False)]"/>
@@ -83,7 +83,7 @@
                   context="{'group_by': 'publisher_id'}"/>
 
       </search>
-        
+
     </field>
   </record>
 

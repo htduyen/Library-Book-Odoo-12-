@@ -12,7 +12,8 @@
                   <field name="name" />
                   <field name="create_date" />
                   <field name="birthday" />
-              </group>
+                  <field name="state" />
+             </group>
               <group>
                   <field name="book_type" widget="selection" />
                   <field name="book_ids" widget="many2many_tags" />
@@ -44,6 +45,7 @@
         <field name="book_ids" widget="many2many_tags"></field>
         <!-- new line-->
         <field name="create_date" />
+        <field name="state" />
 
     </tree>
   </field>
@@ -55,6 +57,14 @@
       <search>
           <field name="name" filter_domain="[('name','ilike',self)]"/>
           <field name="book_ids" filter_domain="[('book_ids','ilike',self)]"></field>
+
+          <filter name="filter_inactive_writer"
+                  string="Inactive"
+                  domain="[('state','=','inactive')]"/>
+
+          <filter name="filter_active_writer"
+                  string="Active"
+                  domain="[('state','=','active')]"/>
 
           <filter name="group_user"
                   string="By Created"

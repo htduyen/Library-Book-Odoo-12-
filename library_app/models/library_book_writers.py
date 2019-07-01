@@ -11,13 +11,14 @@ class Writer(models.Model):
     book_ids = fields.Many2many(
         'library.book', string='Writered Books')
 
-    create_date = fields.Date('Create date')
+    create_date = fields.Date('Create date', default = fields.Date.today())
 
     image = fields.Binary('Image')
 
     descr = fields.Html('Description')
 
     birthday = fields.Date('Birthday')
+
 
     book_type = fields.Selection(
         [('comic', 'Comic book'),
@@ -31,6 +32,8 @@ class Writer(models.Model):
         default='cookbook')
 
     slogan = fields.Html('Slogan')
+
+    state = fields.Selection(string="Active", selection=[('active', 'active'), ('inactive', 'inactive'), ], required=False, )
 
     @api.model
     def create(self, vals):

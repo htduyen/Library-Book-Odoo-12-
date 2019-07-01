@@ -13,7 +13,6 @@ class CheckoutStage(models.Model):
         [('new','New'),
         ('open','Borrowed'),
         ('done','Returned'),
-        ('cancel', 'Cancelled'),
-         ('lost', 'Lost')],
+        ('cancel', 'Cancelled')],
         default='new',
 )
