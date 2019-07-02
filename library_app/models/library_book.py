@@ -28,7 +28,12 @@ class Book(models.Model):
          ('other', 'Other')],
         'Type')
     notes = fields.Text('Internal Notes')
-    descr = fields.Html('Description')
+    descr = fields.Char('Description',)
+
+    # @api.depends('category_id.description')
+    # def _compute_categ_desc(self):
+    #     for book in self:
+    #         book.descr = book.category_id.description
 
     # Numeric fields
     copies = fields.Integer(default=1)
@@ -51,42 +56,46 @@ class Book(models.Model):
     image = fields.Binary('Cover')
 
     # Relational fields
-    publisher_id = fields.Many2one('res.partner',  string='Publisher', search='_search_function',
-                          filter_domain="[('publisher_id','ilike',self)]",)
+    publisher_id = fields.Many2one('res.partner',  string='Publisher', search='_search_function')
     author_ids = fields.Many2many('res.partner', string='Authors')
 
     # new line
     writer_ids = fields.Many2many('library.book.writers', string='Writer',search='_search_function',
                           domain="[('state','=','active')]", index=True)
 
-    account = fields.Integer(default=1)
+    count = fields.Integer(string ='Count', default = 1)
+    state = fields.Selection(string="State",
+                             selection=[('con', 'Con'), ('het', 'Het'), ('saphet', 'Sap Het')],
+                             store = True,
+                             readonly = True)
 
-    state = fields.Char('State', readonly = True)
 
-    # @api.onchange('account')
-    # def _onchange_account_valid(self):
-    #     for book in self:
-    #         if book.account < 0 :
-    #             raise ValidationError('Account is not {0}'.format(book.account))
-    #         if book.account == 0 :
-    #             book.state = 'Het'
-    #         if 0 < book.account <= 5:
-    #             book.state = 'Sap het'
-    #         if book.account > 5:
-    #             book.state = 'Con'
-    # @api.model
-    # def create(self, vals):
-    #     # Code before create: should use the `vals` dict
-    #     if 'account' in vals:
-    #         if 'account' < 0:
-    #             raise ValidationError('Account is not less than 0')
-    #         if 'account' == 0 :
-    #             vals['state'] = 'Het'
-    #         if 0 < 'account' <= 5:
-    #             vals['state'] = 'Sap het'
-    #         if 'account' > 5:
-    #             vals['state'] = 'Con'
-    #     return super().create(vals)
+    @api.model
+    def doi_trangthai(self, count):
+        # Code before create: should use the `vals` dict
+        if 0 < count < 10:
+            self.state = 'saphet'
+        elif count == 0:
+            self.state = 'het'
+        elif count < 0:
+            raise ValidationError('Count is not'.format(self.count))
+        else:
+            self.state = 'con'
+
+    @api.onchange('count')
+    def change_state(self):
+        for book in self:
+            if 0 < book.count < 10:
+                self.state = 'saphet'
+            elif book.count == 0:
+                self.state = 'het'
+            elif book.count < 0:
+                raise ValidationError('Count is not'.format(self.count))
+            else:
+                self.state = 'con'
+        #self.doi_trangthai(self.count)
+
+
 
     @api.multi
     def _check_isbn(self):
@@ -150,6 +159,11 @@ class Book(models.Model):
         'res.country',
         string='Publisher Country (related)',
         related='publisher_id.country_id',
+    )
+    categ_show_related = fields.Boolean(
+        string ='Categ relate',
+        # store = True,
+        related='category_id.show'
     )
 
     _sql_constraints = [

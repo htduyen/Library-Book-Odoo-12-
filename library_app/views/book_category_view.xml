@@ -1,19 +1,61 @@
 <?xml version="1.0"?>
 <odoo>
 
+  <record id="view_tree_categ" model="ir.ui.view">
+      <field name="name">Book Category Tree</field>
+      <field name="model">library.book.category</field>
+      <field name="arch" type="xml">
+          <tree string="Tree view">
+              <field name="name"/>
+              <field name="show"/>
+              <field name="book_ids"></field>
+          </tree>
+      </field>
+  </record>
+
   <record id="view_form_categ" model="ir.ui.view">
     <field name="name">Book Category Form</field>
     <field name="model">library.book.category</field>
     <field name="arch" type="xml">
         <form>
           <group>
-            <field name="name" />
-            <field name="parent_id" />
-            <field name="child_ids" widget="many2many_tags" />
-            <field name="highlighted_id" />
+
+              <group>
+                  <field name="name" />
+                  <field name="abc" />
+                  <field name="web" />
+              </group>
+
+              <group>
+                  <field name="show"></field>
+              </group>
+          </group>
+          <group>
+                  <field name="description1"></field>
+                  <field name="parent_id" />
+                  <field name="child_ids" widget="many2many_tags" />
+                  <field name="highlighted_id" />
+                  <field name="book_ids"></field>
           </group>
       </form>
     </field>
   </record>
 
+  <record id="search_in_categ" model="ir.ui.view">
+     <field name="name">Search</field>
+     <field name="model">library.book.category</field>
+      <field name="arch" type="xml">
+          <search string="">
+
+              <field name="name" string="name" domain="[('name','ilike',self)]"/>
+              <filter name="filter_inactive_categ"
+                  string="Hide"
+                  domain="[('show','=',False)]"/>
+
+              <filter name="filter_active_categ"
+                      string="Show"
+                      domain="[('show','=',True)]"/>
+          </search>
+     </field>
+  </record>
 </odoo>

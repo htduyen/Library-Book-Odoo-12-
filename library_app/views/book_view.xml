@@ -7,8 +7,14 @@
     <field name="arch" type="xml">
     <form string="Book">
       <header>
-        <button name="button_check_isbn" type="object"
-            string="Check ISBN" />
+        <button name="button_check_isbn" type="object" string="Check ISBN" />
+<!--        <button string="Confirm" type="object" name="action_confirm"-->
+<!--                 class="oe_highlight" />-->
+<!--        <button string="Mark as done" type="object" name="action_done"-->
+<!--                 class="oe_highlight"/>-->
+<!--        <button string="Reset to draft" type="object" name="action_draft"-->
+<!--                 />-->
+<!--          <field name="state" widget="statusbar"/>-->
       </header>
       <sheet>
             <group>
@@ -29,7 +35,7 @@
               </group>
               <group>
                   <separator string="Numeric fields" />
-                  <field name="account"/>
+                  <field name="count"/>
                   <field name="copies" />
                   <field name="avg_rating" />
                   <field name="price" />
@@ -39,6 +45,7 @@
                   <field name="last_borrow_date" />
                   <separator string="Other fields" />
                   <field name="active" />
+                  <field name="categ_show_related"></field>
                   <field name="image" widget="image" />
               </group>
             </group>
@@ -55,8 +62,10 @@
         <field name="name"></field>
         <field name="writer_ids" widget="many2many_tags"></field>
         <field name="publisher_id"/>
-        <field name="account"/>
+        <field name="count"/>
         <field name="state"/>
+        <field name="category_id"></field>
+        <field name="categ_show_related"></field>
     </tree>
   </field>
 </record>

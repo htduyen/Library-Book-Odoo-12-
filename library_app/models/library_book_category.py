@@ -27,3 +27,22 @@ class BookCategory(models.Model):
          ('res.partner', 'Author')],
         'Category Highlight',
     )
+    show = fields.Boolean(string="Show?",default = True)
+
+    book_ids = fields.One2many('library.book','category_id',string = 'Books')
+
+    description1 = fields.Char(string="Description")
+    abc = fields.Char(string="ABC", required=False,)
+
+    web = fields.Html('Html')
+
+    @api.multi
+    def write(self, vals):
+        if 'description1' in vals:
+            description = vals.get('description1')
+            list_id = self.book_ids
+            for book in list_id:
+                book.write({'descr': description})
+        super().write(vals)
+        return True
+
