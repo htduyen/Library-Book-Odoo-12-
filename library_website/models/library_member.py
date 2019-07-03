@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, _
 
 class Member(models.Model):
     _inherit = 'library.member'

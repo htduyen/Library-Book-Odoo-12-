@@ -1,0 +1,574 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* library_app
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-03 06:59+0000\n"
+"PO-Revision-Date: 2019-07-03 06:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: library_app
+#: code:addons/library_app/models/library_book.py:120
+#: code:addons/library_app/models/library_book.py:190
+#, python-format
+msgid "%s is an invalid ISBN"
+msgstr "%s là một giá trị ISBN sai"
+
+#. module: library_app
+#: code:addons/library_app/models/library_book.py:122
+#, python-format
+msgid "%s is an valid ISBN"
+msgstr "%s là một giá trị ISBN đúng"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "(Accum. authors:"
+msgstr ""
+
+#. module: library_app
+#: selection:library.book.writers,book_type:0
+msgid "Action and adventure"
+msgstr "Hanh dong"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__state
+#: model_terms:ir.ui.view,arch_db:library_app.view_filter_writers_of_book
+#: model_terms:ir.ui.view,arch_db:library_app.view_search_book
+msgid "Active"
+msgstr "Có hiệu lực"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__active
+msgid "Active?"
+msgstr "Kích hoạt?"
+
+#. module: library_app
+#: selection:library.book.category,highlighted_id:0
+msgid "Author"
+msgstr "Tác giả"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_res_partner__book_ids
+#: model:ir.model.fields,field_description:library_app.field_res_users__book_ids
+msgid "Authored Books"
+msgstr "Sách được viết"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__author_ids
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "Authors"
+msgstr "Những tác giả"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__avg_rating
+msgid "Average Rating"
+msgstr "Xếp hạng TB"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__birthday
+msgid "Birthday"
+msgstr "Ngày sinh"
+
+#. module: library_app
+#: model:ir.model,name:library_app.model_library_book
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_book
+#: selection:library.book.category,highlighted_id:0
+msgid "Book"
+msgstr "Sách"
+
+#. module: library_app
+#: model:ir.model,name:library_app.model_library_book_category
+msgid "Book Category"
+msgstr "Thể loại sách"
+
+#. module: library_app
+#: model:ir.model,name:library_app.model_library_book_report
+msgid "Book Report"
+msgstr "Báo cáo"
+
+#. module: library_app
+#: model:ir.model.fields,help:library_app.field_library_book__name
+msgid "Book cover title"
+msgstr "Tên trang bìa"
+
+#. module: library_app
+#: sql_constraint:library.book:0
+msgid "Book title and publication date must be unique."
+msgstr "Tên sách và ngày public phải là duy nhất"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__book_ids
+#: model:ir.ui.menu,name:library_app.menu_library_book
+#: model_terms:ir.ui.view,arch_db:library_app.book_list_template
+msgid "Books"
+msgstr "Sách"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_filter_writers_of_book
+msgid "By Created"
+msgstr "Tạo bởi"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_search_book
+msgid "By Publisher"
+msgstr "Xuất bản bởi"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__categ_show_related
+msgid "Categ relate"
+msgstr "Danh mục relate"
+
+#. module: library_app
+#: model:ir.actions.act_window,name:library_app.action_library_categ
+#: model:ir.ui.menu,name:library_app.menu_library_categ
+msgid "Categories"
+msgstr "Danh mục"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__category_id
+msgid "Category"
+msgstr "Danh mục"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__highlighted_id
+msgid "Category Highlight"
+msgstr "Danh mục nổi bật"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_book
+msgid "Check ISBN"
+msgstr "Kiểm tra ISBN"
+
+#. module: library_app
+#: selection:library.book.writers,book_type:0
+msgid "Comic book"
+msgstr "Truyện tranh"
+
+#. module: library_app
+#: selection:library.book,state:0
+msgid "Con"
+msgstr "Còn"
+
+#. module: library_app
+#: model:ir.model,name:library_app.model_res_partner
+msgid "Contact"
+msgstr "Liên hệ"
+
+#. module: library_app
+#: selection:library.book.writers,book_type:0
+msgid "Cookbook"
+msgstr "Cookbook"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__copies
+msgid "Copies"
+msgstr "Bản coppy"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__count
+msgid "Count"
+msgstr "Số lượng"
+
+#. module: library_app
+#: code:addons/library_app/models/library_book.py:82
+#: code:addons/library_app/models/library_book.py:94
+#, python-format
+msgid "Count is not"
+msgstr "Số lượng sai"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "Count:"
+msgstr "Số lượng"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__image
+msgid "Cover"
+msgstr "Trang bìa"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__create_date
+msgid "Create date"
+msgstr "Ngày tạo"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__create_uid
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__create_uid
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__create_date
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__create_date
+msgid "Created on"
+msgstr "Thời điểm tạo"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__currency_id
+msgid "Currency"
+msgstr "Tiền tệ"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_sql
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "Date"
+msgstr "Ngày"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__date_published
+#: model:ir.model.fields,field_description:library_app.field_library_book_report__date_published
+msgid "Date Published"
+msgstr "Ngày được đăng"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_book
+msgid "Date and time fields"
+msgstr "Thời gian"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__descr
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__description1
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__descr
+msgid "Description"
+msgstr "Miêu tả"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_writers
+msgid "Descriptions"
+msgstr "Miêu tả"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__display_name
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__display_name
+#: model:ir.model.fields,field_description:library_app.field_library_book_report__display_name
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: library_app
+#: selection:library.book.writers,book_type:0
+msgid "Drama"
+msgstr "Kịch"
+
+#. module: library_app
+#: selection:library.book,book_type:0
+msgid "Electronic"
+msgstr "Điện tử"
+
+#. module: library_app
+#: selection:library.book.writers,book_type:0
+msgid "Graphic novel"
+msgstr "Tiểu thuyết tranh"
+
+#. module: library_app
+#: selection:library.book,book_type:0
+msgid "Hardcover"
+msgstr "Hardcover"
+
+#. module: library_app
+#: selection:library.book,state:0
+msgid "Het"
+msgstr "Hết"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.search_in_categ
+msgid "Hide"
+msgstr "Ẩn"
+
+#. module: library_app
+#: selection:library.book.writers,book_type:0
+msgid "Horror"
+msgstr "Kinh dị"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__id
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__id
+#: model:ir.model.fields,field_description:library_app.field_library_book_report__id
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__id
+msgid "ID"
+msgstr "ID"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__isbn
+msgid "ISBN"
+msgstr "ISBN"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__image
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_filter_writers_of_book
+#: model_terms:ir.ui.view,arch_db:library_app.view_search_book
+msgid "Inactive"
+msgstr "Không hiệu lực"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__notes
+msgid "Internal Notes"
+msgstr "Ghi chú nội bộ"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__last_borrow_date
+msgid "Last Borrowed On"
+msgstr "Ngày cuối cùng mượn"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book____last_update
+#: model:ir.model.fields,field_description:library_app.field_library_book_category____last_update
+#: model:ir.model.fields,field_description:library_app.field_library_book_report____last_update
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__write_uid
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__write_uid
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__write_date
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__write_date
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: library_app
+#: model:res.groups,name:library_app.library_group_user
+msgid "Librarian"
+msgstr "Quản thư"
+
+#. module: library_app
+#: model:ir.module.category,name:library_app.module_library_category
+#: model:ir.ui.menu,name:library_app.library_menu
+msgid "Library"
+msgstr "Thư viện"
+
+#. module: library_app
+#: model:ir.actions.report,name:library_app.action_library_book_sql_report
+msgid "Library Book SQL Report"
+msgstr "Báo cáo thư viện SQL"
+
+#. module: library_app
+#: model:ir.actions.act_window,name:library_app.action_library_book
+#: model:ir.actions.report,name:library_app.action_library_book_report
+msgid "Library Books"
+msgstr "Thư viện sách"
+
+#. module: library_app
+#: model:res.groups,name:library_app.library_group_manager
+msgid "Manager"
+msgstr "Quản lý"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__name
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_book
+msgid "Numeric fields"
+msgstr "Trường số"
+
+#. module: library_app
+#: selection:library.book,book_type:0
+msgid "Other"
+msgstr "Khác"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_book
+msgid "Other fields"
+msgstr "Trường khác"
+
+#. module: library_app
+#: selection:library.book,book_type:0
+msgid "Paperback"
+msgstr ""
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__parent_id
+msgid "Parent Category"
+msgstr "Danh mục cha"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__parent_path
+msgid "Parent Path"
+msgstr "Đường dẫn danh mục cha"
+
+#. module: library_app
+#: code:addons/library_app/models/library_book.py:117
+#, python-format
+msgid "Please provide an ISBN13 for %s"
+msgstr "Hãy cung cấp ISBN13 cho %s"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__price
+msgid "Price"
+msgstr "Giá"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "Price:"
+msgstr "Giá:"
+
+#. module: library_app
+#: sql_constraint:library.book:0
+msgid "Publication date must not be in the future."
+msgstr "Ngày public không sớm hơn hiện tại"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_res_partner__published_book_ids
+#: model:ir.model.fields,field_description:library_app.field_res_users__published_book_ids
+msgid "Published Books"
+msgstr "Sách được xuất bản"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__publisher_id
+#: model:ir.model.fields,field_description:library_app.field_library_book_report__publisher_id
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_sql
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "Publisher"
+msgstr "Nhà xuất bản"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "Publisher Address"
+msgstr "Địa chỉ NXB"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__publisher_country_id
+msgid "Publisher Country"
+msgstr "Quốc gia NXB"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__publisher_country_related
+msgid "Publisher Country (related)"
+msgstr "Quốc gia NXB (quan hệ)"
+
+#. module: library_app
+#: selection:library.book.writers,book_type:0
+msgid "Romance"
+msgstr "Lãng mạn"
+
+#. module: library_app
+#: selection:library.book,state:0
+msgid "Sap Het"
+msgstr "Sắp hết"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.search_in_categ
+msgid "Show"
+msgstr "Hiện"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__show
+msgid "Show?"
+msgstr "Hiện"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__slogan
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_writers
+msgid "Slogan"
+msgstr "Lời hay"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__state
+msgid "State"
+msgstr "Giai đoạn"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_category__child_ids
+msgid "Subcategories"
+msgstr "Danh mục con"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_book
+msgid "Text fields"
+msgstr "Trường text"
+
+#. module: library_app
+#: sql_constraint:library.book.writers:0
+msgid "This name already, Name of writer must be unique."
+msgstr "Tên đã tồn tại, Tên của nhà văn phải duy nhất"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__name
+#: model:ir.model.fields,field_description:library_app.field_library_book_report__name
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_sql
+#: model_terms:ir.ui.view,arch_db:library_app.report_library_book_template
+msgid "Title"
+msgstr "Xưng hô"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.view_tree_categ
+msgid "Tree view"
+msgstr ""
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book__book_type
+msgid "Type"
+msgstr "Loại"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__book_type
+msgid "Type book"
+msgstr "Loại sách"
+
+#. module: library_app
+#: model:ir.model.fields,help:library_app.field_library_book__isbn
+msgid "Use a valid ISBN-13 or ISBN-10."
+msgstr "Sử dụng ISBN-13 Hoặc ISBN-10"
+
+#. module: library_app
+#: model:ir.model,name:library_app.model_library_book_writer
+#: model:ir.model,name:library_app.model_library_book_writers
+#: model:ir.model.fields,field_description:library_app.field_library_book__writer_ids
+#: model_terms:ir.ui.view,arch_db:library_app.view_form_writers
+msgid "Writer"
+msgstr "Nhà văn"
+
+#. module: library_app
+#: model:ir.model.fields,field_description:library_app.field_library_book_writers__book_ids
+msgid "Writered Books"
+msgstr "Sách được viết"
+
+#. module: library_app
+#: model:ir.actions.act_window,name:library_app.action_library_writers
+#: model:ir.ui.menu,name:library_app.menu_library_writer
+msgid "Writers"
+msgstr "Các nhà văn"
+
+#. module: library_app
+#: selection:library.book.writers,state:0
+msgid "active"
+msgstr "kích hoạt"
+
+#. module: library_app
+#: selection:library.book.writers,state:0
+msgid "inactive"
+msgstr "không kích hoạt"
+
+#. module: library_app
+#: model_terms:ir.ui.view,arch_db:library_app.search_in_categ
+msgid "name"
+msgstr "tên"
+
+#. module: library_app
+#: code:addons/library_app/models/library_book.py:130
+#, python-format
+msgid "{0} is an invalid ISBN"
+msgstr "{0} là một giá trị ISBN sai"
+

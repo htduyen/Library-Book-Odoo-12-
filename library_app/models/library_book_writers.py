@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class Writer(models.Model):
@@ -19,6 +19,14 @@ class Writer(models.Model):
 
     birthday = fields.Date('Birthday')
 
+    code_writer = fields.Char(string='Code Writer', required=True, copy=False, readonly=True,
+                   index=True, default=lambda self: _('New'))
+
+    @api.model
+    def create(self, vals):
+        vals['code_writer'] = self.env['ir.sequence'].next_by_code('increment_code_writer') or _('New')
+        res = super().create(vals)
+        return res
 
     book_type = fields.Selection(
         [('comic', 'Comic book'),
@@ -35,12 +43,12 @@ class Writer(models.Model):
 
     state = fields.Selection(string="Active", selection=[('active', 'active'), ('inactive', 'inactive'), ], required=False, )
 
-    @api.model
-    def create(self, vals):
-        name = vals.get('name')
-        new_name = name.title()
-        vals['name'] = new_name
-        return super(Writer , self).create(vals)
+    # @api.model
+    # def create(self, vals):
+    #     name = vals.get('name')
+    #     new_name = name.title()
+    #     vals['name'] = new_name
+    #     return super().create(vals)
 
     _sql_constraints = [
         ('library_book_name_writer',

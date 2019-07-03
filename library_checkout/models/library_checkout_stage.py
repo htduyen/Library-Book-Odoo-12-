@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, _
 
 class CheckoutStage(models.Model):
     _name = 'library.checkout.stage'

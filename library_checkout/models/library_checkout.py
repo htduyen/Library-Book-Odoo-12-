@@ -1,4 +1,4 @@
-from odoo import api, exceptions, fields, models
+from odoo import api, exceptions, fields, models, _
 
 
 class Checkout(models.Model):
@@ -61,8 +61,8 @@ class Checkout(models.Model):
             self.request_date = fields.Date.today()
             return {
                 'warning': {
-                    'title': 'Changed Request Date',
-                    'message': 'Request date changed to today.'
+                    'title': _('Changed Request Date'),
+                    'message': _('Request date changed to today.')
                 }
             }
 
@@ -80,7 +80,7 @@ class Checkout(models.Model):
         # Code after create: can use the `new_record` created
         if new_record.state == 'done':
             raise exceptions.UserError(
-                'Not allowed to create a checkout in the done state.')
+                _('Not allowed to create a checkout in the done state.'))
         return new_record
 
     @api.multi
@@ -106,8 +106,8 @@ class Checkout(models.Model):
 
             return {
                 'warning': {
-                    'title': 'Changed checkout date',
-                    'message': 'Checkout date have to rather than Request date!.'
+                    'title': _('Changed checkout date'),
+                    'message': _('Checkout date have to rather than Request date!.')
                 }
             }
 

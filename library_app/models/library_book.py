@@ -1,6 +1,7 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from odoo.exceptions import Warning
 from odoo.exceptions import ValidationError
+# from odoo.tools.translate import _
 
 
 class Book(models.Model):
@@ -78,7 +79,7 @@ class Book(models.Model):
         elif count == 0:
             self.state = 'het'
         elif count < 0:
-            raise ValidationError('Count is not'.format(self.count))
+            raise ValidationError(_('Count is not'.format(self.count)))
         else:
             self.state = 'con'
 
@@ -90,10 +91,9 @@ class Book(models.Model):
             elif book.count == 0:
                 self.state = 'het'
             elif book.count < 0:
-                raise ValidationError('Count is not'.format(self.count))
+                raise ValidationError(_('Count is not'.format(self.count)))
             else:
                 self.state = 'con'
-        #self.doi_trangthai(self.count)
 
 
 
@@ -114,12 +114,12 @@ class Book(models.Model):
         for book in self:
             if not book.isbn:
                 raise Warning(
-                    'Please provide an ISBN13 for %s' % book.name)
+                    _('Please provide an ISBN13 for %s') % book.name)
             if book.isbn and not book._check_isbn():
                 raise Warning(
-                    '%s is an invalid ISBN' % book.isbn)
+                    _('%s is an invalid ISBN') % book.isbn)
             if book.isbn and book._check_isbn():
-                raise Warning('%s is an valid ISBN' % book.isbn)
+                raise Warning(_('%s is an valid ISBN') % book.isbn)
         return True
 
     #Check ISBN
@@ -127,7 +127,7 @@ class Book(models.Model):
     def _onchange_isbn_valid(self):
         for book in self:
             if book.isbn and not book._check_isbn():
-                raise ValidationError('{0} is an invalid ISBN'.format(book.isbn))
+                raise ValidationError(_('{0} is an invalid ISBN').format(book.isbn))
 
     category_id = fields.Many2one('library.book.category', string='Category')
 
@@ -175,11 +175,18 @@ class Book(models.Model):
          'Publication date must not be in the future.'),
     ]
 
+    @api.model
+    def create(self, vals):
+        name = vals.get('name')
+        new_name = name.title()
+        vals['name'] = new_name
+        return super().create(vals)
+
     @api.constrains('isbn')
     def _constrain_isbn_valid(self):
         for book in self:
             if book.isbn and not book._check_isbn():
                 raise ValidationError(
-                    '%s is an invalid ISBN' % book.isbn)
+                    _('%s is an invalid ISBN') % book.isbn)
 
     #/176

@@ -1,7 +1,15 @@
 <?xml version="1.0"?>
 <odoo>
+    <record id="seq_writer_application" model="ir.sequence">
+        <field name="name">Writer Application</field>
+        <field name="code">increment_code_writer</field>
+        <field name="prefix">BOOK-</field>
+        <field name="padding">4</field>
+        <field name="suffix">-%(year)s-%(month)s-%(day)s</field>
+        <field name="company_id" eval="False"/>
+    </record>
 
-  <record id="view_form_writers" model="ir.ui.view">
+    <record id="view_form_writers" model="ir.ui.view">
     <field name="name">Writer Form</field>
     <field name="model">library.book.writers</field> <!-- file pyhton /-/- library_book.py -->
     <field name="arch" type="xml">
@@ -35,7 +43,7 @@
     </field>
   </record>
 
-<record id="view_tree_writers" model="ir.ui.view">
+    <record id="view_tree_writers" model="ir.ui.view">
   <field name="name">Writer List</field>
   <field name="model">library.book.writers</field>
   <field name="arch" type="xml">
@@ -46,12 +54,13 @@
         <!-- new line-->
         <field name="create_date" />
         <field name="state" />
+        <field name="code_writer"></field>
 
     </tree>
   </field>
 </record>
 
-  <record id="view_filter_writers_of_book" model="ir.ui.view">
+    <record id="view_filter_writers_of_book" model="ir.ui.view">
     <field name="model">library.book.writers</field>
     <field name="arch" type="xml">
       <search>

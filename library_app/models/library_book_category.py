@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 
 class BookCategory(models.Model):
@@ -32,9 +32,9 @@ class BookCategory(models.Model):
     book_ids = fields.One2many('library.book','category_id',string = 'Books')
 
     description1 = fields.Char(string="Description")
-    abc = fields.Char(string="ABC", required=False,)
+    # abc = fields.Char(string="ABC", required=False,)
 
-    web = fields.Html('Html')
+    # web = fields.Html('Html')
 
     @api.multi
     def write(self, vals):
