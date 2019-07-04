@@ -36,6 +36,8 @@ class BookCategory(models.Model):
 
     # web = fields.Html('Html')
 
+    currency_id = fields.Many2one('res.currency')
+
     @api.multi
     def write(self, vals):
         if 'description1' in vals:
@@ -43,6 +45,12 @@ class BookCategory(models.Model):
             list_id = self.book_ids
             for book in list_id:
                 book.write({'descr': description})
+        # super().write(vals)
+        if 'currency_id' in vals:
+            currency = vals.get('currency_id')
+            list_id = self.book_ids
+            for book in list_id:
+                book.write({'currency_id': currency})
         super().write(vals)
         return True
 

@@ -39,6 +39,7 @@
                   <field name="copies" />
                   <field name="avg_rating" />
                   <field name="price" />
+                  <field name="gia" />
                   <field name="currency_id" />
                   <separator string="Date and time fields" />
                   <field name="date_published" />
@@ -64,6 +65,7 @@
         <field name="publisher_id"/>
         <field name="count"/>
         <field name="state"/>
+        <field name="gia" />
         <field name="category_id"></field>
         <field name="categ_show_related"></field>
     </tree>

@@ -9,6 +9,7 @@
               <field name="name"/>
               <field name="show"/>
               <field name="book_ids"></field>
+              <field name="currency_id"></field>
           </tree>
       </field>
   </record>
@@ -27,6 +28,7 @@
 
               <group>
                   <field name="show"></field>
+                  <field name="currency_id"></field>
               </group>
           </group>
           <group>
