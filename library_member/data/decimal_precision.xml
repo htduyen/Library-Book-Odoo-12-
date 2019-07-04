@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+<!-- Data to load -->
+    <record model="decimal.precision" id="book_price_id">
+        <field name="name">Book Price</field>
+        <field name="digits">5</field>
+    </record>
+    <record model="decimal.precision" id="book_price_id_2">
+        <field name="name">Book Price 3</field>
+        <field name="digits">3</field>
+    </record>
+    <record model="decimal.precision" id="book_price_id_4">
+        <field name="name">Book Price 4</field>
+        <field name="digits">3</field>
+    </record>
+</odoo>

@@ -17,7 +17,9 @@
    'demo': [
       'data/res.partner.csv',
       'data/library.book.csv',
+      'data/decimal.precision.csv',
       'data/book_demo.xml',
+      # 'data/decimal_precision.xml',
    ],
    'application': True,
    'installable': True,

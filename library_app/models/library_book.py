@@ -1,6 +1,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import Warning
 from odoo.exceptions import ValidationError
+from odoo.addons import decimal_precision as dp
 # from odoo.tools.translate import _
 
 
@@ -41,7 +42,10 @@ class Book(models.Model):
     avg_rating = fields.Float('Average Rating', (6, 4))
     currency_id = fields.Many2one('res.currency')
     price = fields.Monetary('Price', 'currency_id')
-    gia = fields.Float("Gia", digits=(16,3))
+
+    gia = fields.Float(
+        'Gia', default=0.0, digits=dp.get_precision('Book Price'),
+        required=True, help="The price to purchase a product")
     # Date fields
     date_published = fields.Date('Date Published')
     last_borrow_date = fields.Datetime(
@@ -64,11 +68,11 @@ class Book(models.Model):
     writer_ids = fields.Many2many('library.book.writers', string='Writer',search='_search_function',
                           domain="[('state','=','active')]", index=True)
 
-    count = fields.Integer(string ='Count', default = 1)
+    count = fields.Integer(string ='Count')
     state = fields.Selection(string="State",
-                             selection=[('con', 'Con'), ('het', 'Het'), ('saphet', 'Sap Het')],
-                             store = True,
-                             readonly = True)
+                             selection=[('con', 'Con'),
+                                        ('het', 'Het'),
+                                        ('saphet', 'Sap Het')],)
 
 
     @api.model
@@ -82,18 +86,19 @@ class Book(models.Model):
             raise ValidationError(_('Count is not'.format(self.count)))
         else:
             self.state = 'con'
-
+        return True
     @api.onchange('count')
     def change_state(self):
-        for book in self:
-            if 0 < book.count < 10:
-                self.state = 'saphet'
-            elif book.count == 0:
-                self.state = 'het'
-            elif book.count < 0:
-                raise ValidationError(_('Count is not'.format(self.count)))
-            else:
-                self.state = 'con'
+        # for book in self:
+        #     if 0 < book.count < 10:
+        #         self.state = 'saphet'
+        #     elif book.count == 0:
+        #         self.state = 'het'
+        #     elif book.count < 0:
+        #         raise ValidationError(_('Count is not'.format(self.count)))
+        #     else:
+        #         self.state = 'con'
+        self.doi_trangthai(self.count)
 
 
 
