@@ -41,13 +41,13 @@ class Book(models.Model):
     copies = fields.Integer(default=1, size =4)
     avg_rating = fields.Float('Average Rating', (16, 4))
 
-    @api.onchange('avg_rating')
-    def _onchange_avg_rating(self):
-        for book in self:
-            rate = book.avg_rating
-            str_rate = rate.str()
-            if len(str_rate) > 4:
-                raise ValidationError(_('Length this field is less than 4'))
+    # @api.onchange('avg_rating')
+    # def _onchange_avg_rating(self):
+    #     for book in self:
+    #         rate = book.avg_rating
+    #         str_rate = rate.str()
+    #         if len(str_rate) > 4:
+    #             raise ValidationError(_('Length this field is less than 4'))
 
 
 
